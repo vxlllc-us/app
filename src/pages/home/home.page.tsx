@@ -6,10 +6,10 @@ import { strings } from "../../res";
 export default function Home() {
   return (
     <div>
-      <div className={"home-root"}>
+      <section className={"section-one"}>
         <h1>{strings.home.s1}</h1>
         <h6>{strings.home.s2}</h6>
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,16 +1,22 @@
 import React from "react";
-import {} from "react-router-dom";
+import {withRouter, RouteComponentProps} from "react-router-dom";
 
 import { strings } from "../../res";
+import { config } from "../../lib";
 import "./navbar.scss";
 
 const logo = require("../../res/assets/images/logos/logo-black.png");
+const { routes } = config;
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component<RouteComponentProps<{}>, any>{
+  navigateToHome = () => {
+    this.props.history.push(routes.home);
+  }
+
   render() {
     return (
       <nav className={"navbar"}>
-        <div className="logo-container">
+        <div onClick={this.navigateToHome} className="logo-container">
           <img className={"logo"} alt={strings.navbar.s7} src={logo} />
         </div>
           <div className={"menu-icon-container"}>
@@ -39,3 +45,5 @@ export default class Navbar extends React.Component {
     );
   }
 }
+
+export default withRouter(Navbar);
