@@ -8,7 +8,7 @@ export default {
     s7: "LOGO"
   },
   home: {
-    s1: "VXL LLC",
+    s1: "VXL LLC.",
     s2:
       "Expert-level experience implementing Guidewire InsuranceSuite® products"
   }
