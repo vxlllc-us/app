@@ -13,6 +13,11 @@ export default class Navbar extends React.Component {
         <div className="logo-container">
           <img className={"logo"} alt={strings.navbar.s7} src={logo} />
         </div>
+          <div className={"menu-icon-container"}>
+            <div className={"bar"} />
+            <div className={"bar"} />
+            <div className={"bar"} />
+              </div>
         <div className="navigation-container">
           <div className="nav-button">
             <span>{strings.navbar.s1}</span>
