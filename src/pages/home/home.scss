@@ -7,9 +7,38 @@
 
   .section-title {
     width: 100%;
-    font-family: "Playfair Display", serif;
-    font-size: 2rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    h1 {
+      display: inline-block;
+      vertical-align: baseline;
+      font-size: 2rem;
+      font-weight: 500;
+      zoom: 1;
+      *display: inline;
+      *vertical-align: auto;
+      position: relative;
+      padding: 0 20px;
+
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        width: 10vw;
+        position: absolute;
+        top: 0.73em;
+        border-top: 5px solid #0a0a0a;
+      }
+
+      &:before {
+        right: 100%;
+      }
+      &:after {
+        left: 100%;
+      }
+    }
   }
 }
 
@@ -23,6 +52,7 @@
 
   h1 {
     font-size: 4rem;
+    font-weight: 200;
     padding: 12px;
     margin: 0 0 0 0;
     animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 1)
@@ -31,6 +61,7 @@
 
   h6 {
     font-size: 1.5rem;
+    font-weight: 100;
     padding: 12px;
     margin: 0;
     animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 1.5)
