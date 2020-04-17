@@ -22,6 +22,7 @@
     font-size: 1.5rem;
     padding: 0;
     margin: 0;
+    font-weight: normal;
     animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 1.5)
       both;
   }
