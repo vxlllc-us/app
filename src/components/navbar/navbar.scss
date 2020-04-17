@@ -27,8 +27,8 @@
   }
 
   .menu-icon-container {
-    height: 100%;
-    width: 48px;
+    height: 80%;
+    width: 38px;
     align-items: space-around;
     flex-direction: column;
     justify-content: center;
@@ -46,12 +46,18 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: bold;
 
     .nav-button {
-      margin: 0 12px;
+      margin: 0 10px;
       cursor: pointer;
+      font-weight: bold;
+      transition: $animation-duration;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
