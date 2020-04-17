@@ -1,2 +1,5 @@
+import theme from "./theme";
 
-export {};
+export {
+  theme
+}

@@ -1,2 +1,5 @@
+import { theme } from "./ui";
 
-export {};
+export {
+  theme
+}
