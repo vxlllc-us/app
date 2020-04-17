@@ -1,5 +1,6 @@
-import { theme } from "./ui";
+import { theme, strings } from "./ui";
 
 export {
-  theme
+  theme,
+  strings
 }

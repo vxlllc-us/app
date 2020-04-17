@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import { Home } from "../";
+import { Navbar } from "../../components";
 import { config } from "../../lib";
 import { theme } from "../../res";
 
@@ -20,6 +21,7 @@ export default class Wrapper extends React.Component {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Router>
+          <Navbar />
           <Switch>
             <Route exact path={routes.home} component={Home} />
           </Switch>
