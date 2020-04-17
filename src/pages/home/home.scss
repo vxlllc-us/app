@@ -12,15 +12,15 @@
 
   h1 {
     font-size: 4rem;
-    padding: 0;
-    margin: 0 0 12px 0;
+    padding: 12px;
+    margin: 0 0 0 0;
     animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 1)
       both;
   }
 
   h6 {
     font-size: 1.5rem;
-    padding: 0;
+    padding: 12px;
     margin: 0;
     font-weight: normal;
     animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 1.5)
