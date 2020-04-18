@@ -1,5 +1,6 @@
-import config from "./config";
+import config, { IService as Service } from "./config";
 
 export {
-  config
+  config,
 }
+export type IService = Service;

@@ -1,6 +1,6 @@
 import { IconDefinition, faCogs, faWrench, faPuzzlePiece, faShareSquare, faCheckSquare, faThumbsUp, faArrowsAlt, faMobile, faCloudUploadAlt, faSyncAlt, faDatabase } from "@fortawesome/free-solid-svg-icons";
 
-interface IService {
+export interface IService {
   icon: IconDefinition;
   name: string;
   description?: string;
@@ -67,5 +67,6 @@ const services: IService[] = [
 export default {
   routes: {
     home: "/"
-  }
+  },
+  services
 }
