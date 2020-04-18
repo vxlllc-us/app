@@ -11,7 +11,12 @@ import {
   faSyncAlt,
   faDatabase
 } from "@fortawesome/free-solid-svg-icons";
+
 import { IService, IPartner, ICustomer } from "../types";
+
+function getLogoFromImage(logo: string) {
+  return require(`../../res/assets/images/logos/${logo}`);
+}
 
 const { REACT_APP_BASE } = process.env;
 
@@ -86,34 +91,34 @@ const services: IService[] = [
 
 const customers: ICustomer[] = [
   {
-    logo: "ama.png",
+    logo: getLogoFromImage("ama.png"),
     name: "Alberta Motor Association"
   },
   {
-    logo: "twia.png",
+    logo: getLogoFromImage("twia.png"),
     name: "Texas Wind Storm Association"
   },
   {
-    logo: "tfpa.png",
+    logo: getLogoFromImage("tfpa.png"),
     name: "Texas Fair Plan"
   },
   {
-    logo: "tsys.png",
+    logo: getLogoFromImage("tsys.png"),
     name: "Total Systems"
   },
   {
-    logo: "gore.png",
+    logo: getLogoFromImage("gore.png"),
     name: "W L Gore"
   }
 ];
 
 const partners: IPartner[] = [
   {
-    logo: "biminds.jpg",
+    logo: getLogoFromImage("biminds.jpg"),
     name: "Biminds"
   },
   {
-    logo: "vassarlabs.png",
+    logo: getLogoFromImage("vassarlabs.png"),
     name: "Vassar Labs"
   }
 ]

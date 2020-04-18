@@ -5,6 +5,10 @@
   min-height: 100vh;
   width: 100%;
 
+  &:nth-child(even) {
+    background-color: darken(#fbfbfb, 1);
+  }
+
   .section-header {
     width: 100%;
     text-align: center;
@@ -180,11 +184,140 @@
 .section-three {
   @extend .section;
   text-align: center;
-  background-color: red;
+
+  .section-header {
+    h1 {
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 3.5) both;
+    }
+
+    p {
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 3.7) both;
+    }
+  }
+
+  .customers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 4)
+      both;
+  }
+
+  .customer-card {
+    height: 25vh;
+    min-height: 175px;
+    border-radius: 2px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $animation-duration, display $animation-duration 100ms;
+
+    .customer-logo {
+      height: 40%;
+      width: 100%;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .customers-container {
+      grid-template-columns: 1fr;
+    }
+    .customer-card {
+      width: 100%;
+
+      .customer-logo {
+        font-size: 4em;
+      }
+    }
+  }
+  @media screen and (min-width: 769px) and (max-width: 992px) {
+    .customers-container {
+      grid-template-columns: 1fr 1fr;
+    }
+    .customer-card {
+      width: 100%;
+
+      .customer-logo {
+        font-size: 3.5em;
+      }
+    }
+  }
 }
 
 .section-four {
   @extend .section;
   text-align: center;
-  background-color: blue;
+
+  .section-header {
+    h1 {
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 4.5) both;
+    }
+
+    p {
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 4.7) both;
+    }
+  }
+
+  .partners-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 5)
+      both;
+  }
+
+  .partner-card {
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 175px;
+    transition: $animation-duration, display $animation-duration 100ms;
+
+    .partner-logo {
+      height: 40%;
+      width: 100%;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .partners-container {
+      grid-template-columns: 1fr;
+    }
+    .partner-card {
+      width: 100%;
+
+      .partner-logo {
+        font-size: 4em;
+      }
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 992px) {
+    .partners-container {
+      grid-template-columns: 1fr;
+    }
+    .partner-card {
+      width: 100%;
+
+      .partner-logo {
+        font-size: 3.5em;
+      }
+    }
+  }
 }
