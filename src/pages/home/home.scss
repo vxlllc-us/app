@@ -92,10 +92,13 @@
 
   .service-card {
     height: 25vh;
+    min-height: 175px;
     width: 30vw;
-    display: flex;
+    display: grid;
+    grid-template-rows: 1.7fr 1fr;
     align-items: center;
     justify-content: center;
+    justify-items: center;
     text-align: center;
     flex-direction: column;
     border-radius: 2px;
@@ -109,6 +112,9 @@
     }
 
     .service-name {
+      width: 100%;
+      margin-bottom: 12px;
+      text-align: center;
       font-size: 1.2em;
       color: #0a0a0a;
     }
