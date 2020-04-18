@@ -251,44 +251,96 @@
 }
 
 .section-four {
-  @extend .section;
   text-align: center;
+  height: 100px;
 
   .section-header {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
     h1 {
-      animation: fadeInFromTop $animation-duration
-        calc(#{$animation-delay} * 4.5) both;
+      display: inline-block;
+      vertical-align: baseline;
+      font-size: 2rem;
+      font-weight: 500;
+      zoom: 1;
+      *display: inline;
+      *vertical-align: auto;
+      position: relative;
+      padding: 0 20px;
+
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        width: 10vw;
+        position: absolute;
+        top: 0.73em;
+        border-top: 5px solid #0a0a0a;
+      }
+
+      &:before {
+        right: 100%;
+      }
+      &:after {
+        left: 100%;
+      }
     }
 
     p {
-      animation: fadeInFromTop $animation-duration
-        calc(#{$animation-delay} * 4.7) both;
+      font-size: 1.1em;
+      width: 100%;
+      text-align: center;
+      margin: 0 0 3em 0;
+      font-weight: 200;
+      color: #0a0a0a;
     }
   }
 
   .partners-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     align-items: center;
-    justify-items: center;
     justify-content: center;
-    animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 5)
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 4)
       both;
   }
 
   .partner-card {
     height: 25vh;
+    min-height: 175px;
+    border-radius: 2px;
+    width: 40%;
+    flex-grow: 1;
+    margin: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 175px;
+    flex-direction: column;
     transition: $animation-duration, display $animation-duration 100ms;
+    border-radius: 2px;
+    padding: 12px;
+    box-shadow: 3px 3px 5px #eee, -3px -3px 5px #fff;
 
     .partner-logo {
       height: 40%;
-      width: 100%;
+      width: auto;
+      flex-grow: 2;
       object-fit: contain;
-      margin-bottom: 12px;
+    }
+
+    .partner-name {
+      width: 100%;
+      flex-grow: 1;
+      text-align: center;
+      font-size: 1.2em;
+      color: #0a0a0a;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
   }
 
@@ -296,6 +348,7 @@
     .partners-container {
       grid-template-columns: 1fr;
     }
+
     .partner-card {
       width: 100%;
 
@@ -307,7 +360,7 @@
 
   @media screen and (min-width: 769px) and (max-width: 992px) {
     .partners-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
     .partner-card {
       width: 100%;
