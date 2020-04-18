@@ -1,5 +1,7 @@
 import { IconDefinition, faCogs, faWrench, faPuzzlePiece, faShareSquare, faCheckSquare, faThumbsUp, faArrowsAlt, faMobile, faCloudUploadAlt, faSyncAlt, faDatabase } from "@fortawesome/free-solid-svg-icons";
 
+const { REACT_APP_BASE } = process.env;
+
 export interface IService {
   icon: IconDefinition;
   name: string;
@@ -66,7 +68,7 @@ const services: IService[] = [
 
 export default {
   routes: {
-    home: "/"
+    home: `${REACT_APP_BASE}/`
   },
   services
 }

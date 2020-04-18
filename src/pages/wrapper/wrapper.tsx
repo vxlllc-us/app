@@ -23,7 +23,7 @@ export default class Wrapper extends React.Component {
         <Router>
           <Navbar />
           <Switch>
-            <Route exact path={routes.home} component={Home} />
+            <Route path={routes.home} component={Home} />
           </Switch>
         </Router>
       </ThemeProvider>
