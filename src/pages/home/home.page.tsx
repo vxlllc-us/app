@@ -56,7 +56,7 @@ export default class Home extends React.Component {
           <h6>{strings.home.s2}</h6>
         </section>
 
-        <section className="section-two">
+        <section className="container section-two">
           <div className="section-header">
             <h1>{strings.home.s3}</h1>
             <p>{strings.home.s8}</p>
