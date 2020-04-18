@@ -5,7 +5,7 @@
   min-height: 100vh;
   width: 100%;
 
-  .section-title {
+  .section-header {
     width: 100%;
     text-align: center;
     position: relative;
@@ -38,6 +38,15 @@
       &:after {
         left: 100%;
       }
+    }
+
+    p {
+      font-size: 1.1em;
+      padding: 0 18em;
+      text-align: center;
+      margin: 0 0 3em 0;
+      font-weight: 200;
+      color: #0a0a0a;
     }
   }
 }
@@ -73,9 +82,16 @@
   @extend .section;
   text-align: center;
 
-  .section-title {
-    animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 2.5)
-      both;
+  .section-header {
+    h1 {
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 2.5) both;
+    }
+
+    p {
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 2.7) both;
+    }
   }
 
   .services-container {

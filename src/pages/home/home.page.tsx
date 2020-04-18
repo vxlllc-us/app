@@ -29,10 +29,11 @@ export default class Home extends React.Component {
           <h6>{strings.home.s2}</h6>
         </section>
         <section className="section-two">
-          <div className="section-title">
+          <div className="section-header">
             <h1>{strings.home.s3}</h1>
-            <div className={"services-container"}>{this.renderServices()}</div>
+            <p>{strings.home.s8}</p>
           </div>
+          <div className={"services-container"}>{this.renderServices()}</div>
         </section>
         <section className="section-three"></section>
         <section className="section-four"></section>
