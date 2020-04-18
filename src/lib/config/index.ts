@@ -54,7 +54,7 @@ const services: IService[] = [
    },
    {
      icon: faSyncAlt,
-      name:"Continuous Integration And Continuous Deliver (Ci-Cd) Services",
+      name:"Continuous Integration And Continuous Delivery (Ci-Cd) Services",
       description:"VXL has expertise in delivering Jenkins, Bamboo, TeamCity and many other CI services to our customers. We setup complete end-to-end automation and DevOps services relying on container technologies like Docker, Kubernetes etc. Our experts have also provided services in Unit testing (JUnit, TestNG, GUnit etc.) to various insurance and noninsurance customers alike."
    },
    {
