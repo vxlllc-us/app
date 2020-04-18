@@ -32,6 +32,7 @@ export default class Home extends React.Component {
       return (
         <div className="customer-card" key={customer.name}>
           <img src={customer.logo} className={"customer-logo"} />
+          <span className="customer-name">{customer.name}</span>
         </div>
       );
     });
@@ -63,7 +64,7 @@ export default class Home extends React.Component {
           <div className={"services-container"}>{this.renderServices()}</div>
         </section>
 
-        <section className="section-three">
+        <section className="container section-three">
           <div className="section-header">
             <h1>{strings.home.s9}</h1>
           </div>

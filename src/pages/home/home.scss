@@ -96,6 +96,7 @@
 .section-two {
   @extend .section;
   text-align: center;
+  padding: 32px 0;
 
   .section-header {
     h1 {
@@ -184,26 +185,22 @@
 .section-three {
   @extend .section;
   text-align: center;
+  padding: 32px 0;
 
   .section-header {
     h1 {
+      margin-bottom: 45px;
       animation: fadeInFromTop $animation-duration
         calc(#{$animation-delay} * 3.5) both;
-    }
-
-    p {
-      animation: fadeInFromTop $animation-duration
-        calc(#{$animation-delay} * 3.7) both;
     }
   }
 
   .customers-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     align-items: center;
-    justify-items: center;
     justify-content: center;
-    margin-top: 32px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
     animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 4)
       both;
   }
@@ -212,17 +209,34 @@
     height: 25vh;
     min-height: 175px;
     border-radius: 2px;
-    width: 100%;
+    width: 40%;
+    flex-grow: 1;
+    margin: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     transition: $animation-duration, display $animation-duration 100ms;
+    border-radius: 2px;
+    padding: 12px;
+    box-shadow: 3px 3px 5px #eee, -3px -3px 5px #fff;
 
     .customer-logo {
       height: 40%;
-      width: 100%;
+      width: auto;
+      flex-grow: 2;
       object-fit: contain;
-      margin-bottom: 12px;
+    }
+
+    .customer-name {
+      width: 100%;
+      flex-grow: 1;
+      text-align: center;
+      font-size: 1.2em;
+      color: #0a0a0a;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
   }
 
