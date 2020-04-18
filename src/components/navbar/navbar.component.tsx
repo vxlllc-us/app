@@ -1,5 +1,7 @@
 import React from "react";
-import {withRouter, RouteComponentProps} from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { strings } from "../../res";
 import { config } from "../../lib";
@@ -8,22 +10,20 @@ import "./navbar.scss";
 const logo = require("../../res/assets/images/logos/logo-black.png");
 const { routes } = config;
 
-class Navbar extends React.Component<RouteComponentProps<{}>, any>{
+class Navbar extends React.Component<RouteComponentProps<{}>, any> {
   navigateToHome = () => {
     this.props.history.push(routes.home);
-  }
+  };
 
   render() {
     return (
       <nav className={"navbar"}>
-        <div onClick={this.navigateToHome} className="logo-container">
+        <div onClick={this.navigateToHome} className="navbar-brand">
           <img className={"logo"} alt={strings.navbar.s7} src={logo} />
         </div>
-          <div className={"menu-icon-container"}>
-            <div className={"bar"} />
-            <div className={"bar"} />
-            <div className={"bar"} />
-              </div>
+        <div className={"menu-icon-container"}>
+          <FontAwesomeIcon className={"menu-icon"} icon={faBars} />
+        </div>
         <div className="navigation-container">
           <div className="nav-button">
             <span>{strings.navbar.s1}</span>

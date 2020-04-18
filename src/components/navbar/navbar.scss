@@ -14,19 +14,14 @@
   justify-content: space-between;
   animation: fadeInFromTop $animation-duration both;
 
-  .logo-container {
-    cursor: pointer;
+  .logo {
     height: 100%;
-    width: auto;
-
-    .logo {
-      height: 100%;
-      width: 64px;
-      object-fit: contain;
-    }
+    width: 38px;
+    object-fit: contain;
   }
 
   .menu-icon-container {
+    cursor: pointer;
     height: 80%;
     width: 38px;
     align-items: space-around;
@@ -34,11 +29,8 @@
     justify-content: center;
     display: none;
 
-    .bar {
-      width: 100%;
-      margin: 4px 0;
-      height: 10%;
-      background-color: #0a0a0a;
+    .menu-icon {
+      font-size: 2em;
     }
   }
 
