@@ -3,7 +3,7 @@ import { withRouter, RouteComponentProps } from "react-router-dom";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { strings } from "../../res";
+import { strings, theme } from "../../res";
 import { config } from "../../lib";
 import "./navbar.scss";
 
@@ -46,7 +46,7 @@ class Navbar extends React.Component<IProps, IState> {
           "navbar"
         )[0] as HTMLElement;
         if (element) {
-          element.style.backgroundColor = "#fbfbfb";
+          element.style.backgroundColor = theme.primary;
           element.style.boxShadow = "3px 0 5px #000";
         }
       } else if (current > 500) {
@@ -58,8 +58,8 @@ class Navbar extends React.Component<IProps, IState> {
           this.setState({
             logo: _logoWhite
           });
-          element.style.color = "#fbfbfb";
-          element.style.backgroundColor = "#0a0a0a";
+          element.style.color = theme.primary;
+          element.style.backgroundColor = theme.secondary;
           element.style.transitionDuration = "200ms";
           element.style.boxShadow = "3px 0 5px #000";
         }
@@ -73,8 +73,8 @@ class Navbar extends React.Component<IProps, IState> {
         this.setState({
           logo: _logo
         });
-        element.style.color = "#0a0a0a";
-        element.style.backgroundColor = "#fbfbfb";
+        element.style.color = theme.secondary;
+        element.style.backgroundColor = theme.primary;
         element.style.transitionDuration = "200ms";
         element.style.boxShadow = "none";
       }
