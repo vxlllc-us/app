@@ -1,9 +1,7 @@
 @import "../../index";
 
 .navbar {
-  height: 5vh;
   min-height: 48px;
-  background-color: transparent;
   position: fixed;
   top: 0;
   right: 0;
@@ -13,6 +11,7 @@
   align-items: center;
   justify-content: space-between;
   animation: fadeInFromTop $animation-duration both;
+  z-index: 12000;
 
   .logo {
     height: 100%;
@@ -44,7 +43,8 @@
     .nav-button {
       margin: 0 10px;
       cursor: pointer;
-      font-weight: 100;
+      font-weight: 300;
+      letter-spacing: 1px;
       transition: $animation-duration;
       text-align: center;
       display: flex;

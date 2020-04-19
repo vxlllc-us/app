@@ -7,19 +7,85 @@ import { strings } from "../../res";
 import { config } from "../../lib";
 import "./navbar.scss";
 
-const logo = require("../../res/assets/images/logos/logo-black.png");
+const _logo = require("../../res/assets/images/logos/logo-black.png");
+const _logoWhite = require("../../res/assets/images/logos/logo-white.png");
 const { routes } = config;
 
-class Navbar extends React.Component<RouteComponentProps<{}>, any> {
+interface IState {
+  pos: number;
+  logo: any;
+}
+type IProps = RouteComponentProps<{}>;
+class Navbar extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+
+    this.state = {
+      pos: 0,
+      logo: _logo
+    };
+
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const old: number = this.state.pos;
+    const current: number = window.pageYOffset;
+
+    console.log("current: ", current);
+    console.log("old: ", old);
+
+    if (current > old && current >= 500) {
+      // scrolling down
+      const element: HTMLElement = document.getElementsByClassName(
+        "navbar"
+      )[0] as HTMLElement;
+      if (element) {
+        this.setState({
+          logo: _logoWhite
+        });
+        element.style.color = "#fbfbfb";
+        element.style.backgroundColor = "#0a0a0a";
+        element.style.transitionDuration = "200ms";
+        element.style.boxShadow = "3px 0 5px #000";
+      }
+    } else if (current < old && current <= 500) {
+      // scrolling up
+      const element: HTMLElement = document.getElementsByClassName(
+        "navbar"
+      )[0] as HTMLElement;
+      if (element) {
+        this.setState({
+          logo: _logo
+        });
+        element.style.color = "#0a0a0a";
+        element.style.backgroundColor = "#fbfbfb";
+        element.style.transitionDuration = "200ms";
+        element.style.boxShadow = "none";
+      }
+    }
+    this.setState({
+      pos: current
+    });
+  };
+
   navigateToHome = () => {
     this.props.history.push(routes.home);
   };
 
   render() {
     return (
-      <nav className={"navbar"}>
+      <nav id={"navbar"} className={"navbar"}>
         <div onClick={this.navigateToHome} className="navbar-brand">
-          <img className={"logo"} alt={strings.navbar.s7} src={logo} />
+          <img
+            className={"logo"}
+            alt={strings.navbar.s7}
+            src={this.state.logo}
+          />
         </div>
         <div className={"menu-icon-container"}>
           <FontAwesomeIcon className={"menu-icon"} icon={faBars} />
