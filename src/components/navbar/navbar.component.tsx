@@ -39,19 +39,30 @@ class Navbar extends React.Component<IProps, IState> {
     console.log("current: ", current);
     console.log("old: ", old);
 
-    if (current > old && current >= 500) {
-      // scrolling down
-      const element: HTMLElement = document.getElementsByClassName(
-        "navbar"
-      )[0] as HTMLElement;
-      if (element) {
-        this.setState({
-          logo: _logoWhite
-        });
-        element.style.color = "#fbfbfb";
-        element.style.backgroundColor = "#0a0a0a";
-        element.style.transitionDuration = "200ms";
-        element.style.boxShadow = "3px 0 5px #000";
+    if (current > old) {
+      if (current > 0 && current <= 500) {
+        // scrolling down
+        const element: HTMLElement = document.getElementsByClassName(
+          "navbar"
+        )[0] as HTMLElement;
+        if (element) {
+          element.style.backgroundColor = "#fbfbfb";
+          element.style.boxShadow = "3px 0 5px #000";
+        }
+      } else if (current > 500) {
+        // scrolling down
+        const element: HTMLElement = document.getElementsByClassName(
+          "navbar"
+        )[0] as HTMLElement;
+        if (element) {
+          this.setState({
+            logo: _logoWhite
+          });
+          element.style.color = "#fbfbfb";
+          element.style.backgroundColor = "#0a0a0a";
+          element.style.transitionDuration = "200ms";
+          element.style.boxShadow = "3px 0 5px #000";
+        }
       }
     } else if (current < old && current <= 500) {
       // scrolling up
