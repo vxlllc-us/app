@@ -36,9 +36,6 @@ class Navbar extends React.Component<IProps, IState> {
     const old: number = this.state.pos;
     const current: number = window.pageYOffset;
 
-    console.log("current: ", current);
-    console.log("old: ", old);
-
     if (current > old) {
       if (current > 0 && current <= 500) {
         // scrolling down
@@ -91,31 +88,33 @@ class Navbar extends React.Component<IProps, IState> {
   render() {
     return (
       <nav id={"navbar"} className={"navbar"}>
-        <div onClick={this.navigateToHome} className="navbar-brand">
-          <img
-            className={"logo"}
-            alt={strings.navbar.s7}
-            src={this.state.logo}
-          />
-        </div>
-        <div className={"menu-icon-container"}>
-          <FontAwesomeIcon className={"menu-icon"} icon={faBars} />
-        </div>
-        <div className="navigation-container">
-          <div className="nav-button">
-            <span>{strings.navbar.s1}</span>
+        <div className="container">
+          <div onClick={this.navigateToHome} className="navbar-brand">
+            <img
+              className={"logo"}
+              alt={strings.navbar.s7}
+              src={this.state.logo}
+            />
           </div>
-          <div className="nav-button">
-            <span>{strings.navbar.s2}</span>
+          <div className={"menu-icon-container"}>
+            <FontAwesomeIcon className={"menu-icon"} icon={faBars} />
           </div>
-          <div className="nav-button">
-            <span>{strings.navbar.s3}</span>
-          </div>
-          <div className="nav-button">
-            <span>{strings.navbar.s4}</span>
-          </div>
-          <div className="nav-button">
-            <span>{strings.navbar.s5}</span>
+          <div className="navigation-container">
+            <div className="nav-button">
+              <span>{strings.navbar.s1}</span>
+            </div>
+            <div className="nav-button">
+              <span>{strings.navbar.s2}</span>
+            </div>
+            <div className="nav-button">
+              <span>{strings.navbar.s3}</span>
+            </div>
+            <div className="nav-button">
+              <span>{strings.navbar.s4}</span>
+            </div>
+            <div className="nav-button">
+              <span>{strings.navbar.s5}</span>
+            </div>
           </div>
         </div>
       </nav>
