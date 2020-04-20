@@ -28,11 +28,24 @@ class Navbar extends React.Component<IProps, IState> {
     };
 
     window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("resize", this.handleResize);
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("resize", this.handleResize);
   }
+
+  handleResize = () => {
+    const { innerHeight, innerWidth } = window;
+    console.log("innerHeight: ", innerHeight);
+    console.log("innerWidth: ", innerWidth);
+    if (innerWidth > 768) {
+      this.setState({
+        show: false,
+      });
+    }
+  };
 
   toggleDrawer = () => {
     this.setState({
