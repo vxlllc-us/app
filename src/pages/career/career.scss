@@ -2,6 +2,7 @@
 
 .career-root {
   height: 100vh;
+  max-width: 100%;
   padding-top: 68px;
 
   .container {
@@ -9,9 +10,9 @@
 
     .job-title {
       margin: 20px 0;
-      font-size: 1.6em;
+      font-size: 1.4em;
       font-weight: 800;
-      width: 100%;
+      word-wrap: break-word;
     }
 
     .job-preface {
