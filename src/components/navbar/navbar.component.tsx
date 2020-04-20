@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { strings, theme } from "../../res";
@@ -14,6 +14,7 @@ const { routes } = config;
 interface IState {
   pos: number;
   logo: any;
+  show: boolean;
 }
 type IProps = RouteComponentProps<{}>;
 class Navbar extends React.Component<IProps, IState> {
@@ -22,7 +23,8 @@ class Navbar extends React.Component<IProps, IState> {
 
     this.state = {
       pos: 0,
-      logo: _logo
+      logo: _logo,
+      show: false
     };
 
     window.addEventListener("scroll", this.handleScroll);
@@ -31,6 +33,12 @@ class Navbar extends React.Component<IProps, IState> {
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
   }
+
+  toggleDrawer = () => {
+    this.setState({
+      show: !this.state.show
+    });
+  };
 
   handleScroll = () => {
     const old: number = this.state.pos;
@@ -90,6 +98,11 @@ class Navbar extends React.Component<IProps, IState> {
     }
   };
 
+  handleNavigationalClick = () => {
+    this.toggleDrawer();
+    return true;
+  };
+
   render() {
     return (
       <nav id={"navbar"} className={"navbar"}>
@@ -101,32 +114,64 @@ class Navbar extends React.Component<IProps, IState> {
               src={this.state.logo}
             />
           </div>
-          <div className={"menu-icon-container"}>
+          <div onClick={this.toggleDrawer} className={"menu-icon-container"}>
             <FontAwesomeIcon className={"menu-icon"} icon={faBars} />
           </div>
-          <div className="navigation-container">
+          <div className={`drawer ${this.state.show && "show"}`}>
+            <FontAwesomeIcon
+              onClick={this.toggleDrawer}
+              className={"close-button"}
+              icon={faTimes}
+            />
             <div className="nav-button">
-              <a href={"#section-two"}>
+              <a onClick={this.handleNavigationalClick} href={"#section-two"}>
                 <span>{strings.navbar.s1}</span>
               </a>
             </div>
             <div className="nav-button">
-              <a href={"#section-three"}>
+              <a onClick={this.handleNavigationalClick} href={"#section-three"}>
                 <span>{strings.navbar.s2}</span>
               </a>
             </div>
             <div className="nav-button">
-              <a href={"#section-four"}>
+              <a onClick={this.handleNavigationalClick} href={"#section-four"}>
                 <span>{strings.navbar.s3}</span>
               </a>
             </div>
             <div className="nav-button">
-              <a href={"#section-five"}>
+              <a onClick={this.handleNavigationalClick} href={"#section-five"}>
                 <span>{strings.navbar.s4}</span>
               </a>
             </div>
             <div className="nav-button">
-              <a href={"#section-six"}>
+              <a onClick={this.handleNavigationalClick} href={"#section-six"}>
+                <span>{strings.navbar.s5}</span>
+              </a>
+            </div>
+          </div>
+          <div className="navigation-container">
+            <div className="nav-button">
+              <a onClick={this.handleNavigationalClick} href={"#section-two"}>
+                <span>{strings.navbar.s1}</span>
+              </a>
+            </div>
+            <div className="nav-button">
+              <a onClick={this.handleNavigationalClick} href={"#section-three"}>
+                <span>{strings.navbar.s2}</span>
+              </a>
+            </div>
+            <div className="nav-button">
+              <a onClick={this.handleNavigationalClick} href={"#section-four"}>
+                <span>{strings.navbar.s3}</span>
+              </a>
+            </div>
+            <div className="nav-button">
+              <a onClick={this.handleNavigationalClick} href={"#section-five"}>
+                <span>{strings.navbar.s4}</span>
+              </a>
+            </div>
+            <div className="nav-button">
+              <a onClick={this.handleNavigationalClick} href={"#section-six"}>
                 <span>{strings.navbar.s5}</span>
               </a>
             </div>
