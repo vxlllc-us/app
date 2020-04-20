@@ -123,6 +123,7 @@
     border-radius: 2px;
     box-shadow: 3px 3px 5px #eee, -3px -3px 5px #fff;
     transition: $animation-duration, display $animation-duration 100ms;
+    padding: 0 12px;
 
     .service-icon {
       font-size: 3.4em;
