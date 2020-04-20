@@ -89,7 +89,8 @@ class Navbar extends React.Component<IProps, IState> {
         this.setState({
           logo: _logo
         });
-        navbar.style.color = theme.primaryText;
+        menuIcon.style.color = theme.secondary;
+        navbar.style.color = theme.secondary;
         navbar.style.backgroundColor = theme.primary;
         navbar.style.transitionDuration = "200ms";
         navbar.style.boxShadow = "none";
