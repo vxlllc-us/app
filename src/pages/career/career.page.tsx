@@ -31,7 +31,7 @@ export default class Career extends React.Component<Props, IState> {
     if (this.state.job) {
       return (
         <>
-          <div className="job-title">{this.state.job.title}</div>
+          <h1 className="job-title">{this.state.job.title}</h1>
           {this.state.job.preface && (
             <div className="job-preface">{this.state.job.preface}</div>
           )}

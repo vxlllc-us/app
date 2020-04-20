@@ -126,7 +126,7 @@ const partners: IPartner[] = [
 const jobs: IJob[] = [
   {
     id: "987ADF0897ADF",
-    title: "  GUIDEWIRE IMPLEMENTATION ARCHITECT (INTEGRATION/CONFIGURATION)",
+    title: "  GUIDEWIRE IMPLEMENTATION ARCHITECT (INTEGRATION & CONFIGURATION)",
     preface: "Guidewire platform knowledge, GOSU Skills Preferred:",
     requirements: [
       "Previous experience with implementing Guidewire ClaimCenter is strongly preferred.",
