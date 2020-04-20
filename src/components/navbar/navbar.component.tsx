@@ -82,7 +82,12 @@ class Navbar extends React.Component<IProps, IState> {
   };
 
   navigateToHome = () => {
-    this.props.history.push(routes.home);
+    const { pathname } = this.props.location;
+    if (pathname.split("/").length > 3) {
+      this.props.history.push(routes.home);
+    } else {
+      window.scrollTo(0, 0);
+    }
   };
 
   render() {
@@ -101,19 +106,29 @@ class Navbar extends React.Component<IProps, IState> {
           </div>
           <div className="navigation-container">
             <div className="nav-button">
-              <span>{strings.navbar.s1}</span>
+              <a href={"#section-two"}>
+                <span>{strings.navbar.s1}</span>
+              </a>
             </div>
             <div className="nav-button">
-              <span>{strings.navbar.s2}</span>
+              <a href={"#section-three"}>
+                <span>{strings.navbar.s2}</span>
+              </a>
             </div>
             <div className="nav-button">
-              <span>{strings.navbar.s3}</span>
+              <a href={"#section-four"}>
+                <span>{strings.navbar.s3}</span>
+              </a>
             </div>
             <div className="nav-button">
-              <span>{strings.navbar.s4}</span>
+              <a href={"#section-five"}>
+                <span>{strings.navbar.s4}</span>
+              </a>
             </div>
             <div className="nav-button">
-              <span>{strings.navbar.s5}</span>
+              <a href={"#section-six"}>
+                <span>{strings.navbar.s5}</span>
+              </a>
             </div>
           </div>
         </div>
