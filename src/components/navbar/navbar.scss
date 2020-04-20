@@ -1,7 +1,7 @@
 @import "../../index";
 
 .navbar {
-  min-height: 48px;
+  height: 68px;
   position: fixed;
   top: 0;
   right: 0;
@@ -14,8 +14,8 @@
   z-index: 12000;
 
   .logo {
-    height: 100%;
-    width: 38px;
+    height: 80%;
+    width: 28px;
     object-fit: contain;
   }
 
@@ -56,6 +56,11 @@
 
 @media screen and (max-width: 768px) {
   .navbar {
+    .logo {
+      height: 80%;
+      width: 28px;
+    }
+
     .menu-icon-container {
       display: flex;
     }
