@@ -230,6 +230,11 @@
       animation: fadeInFromTop $animation-duration
         calc(#{$animation-delay} * 3.5) both;
     }
+
+    p {
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 3.7) both;
+    }
   }
 
   .customers-container {
@@ -311,7 +316,12 @@
     h1 {
       margin-bottom: 32px;
       animation: fadeInFromTop $animation-duration
-        calc(#{$animation-delay} * 3.5) both;
+        calc(#{$animation-delay} * 4.5) both;
+    }
+
+    p {
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 4.7) both;
     }
   }
 
@@ -390,4 +400,100 @@
 
 .section-five {
   @extend .section-last;
+  .section-header {
+    h1 {
+      margin-bottom: 32px;
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 5.5) both;
+    }
+
+    p {
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 5.7) both;
+    }
+  }
+
+  .jobs-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 4)
+      both;
+  }
+
+  .job-card {
+    height: 15vh;
+    min-height: 125px;
+    border-radius: 2px;
+    flex-grow: 1;
+    margin: 12px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $animation-duration, display $animation-duration 100ms;
+    border-radius: 2px;
+    box-shadow: 3px 3px 5px #eee, -3px -3px 5px #fff;
+
+    .job-title {
+      height: 100%;
+      width: auto;
+      flex-grow: 2;
+      display: flex;
+      font-weight: 500;
+      text-align: left;
+      align-items: center;
+      margin: 12px;
+      justify-content: flex-start;
+      object-fit: contain;
+    }
+
+    .job-icon-container {
+      width: 38px;
+      height: 100%;
+      flex-grow: 1;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .job-icon {
+        height: 38px;
+        max-width: 38px;
+        flex-grow: 1;
+        text-align: right;
+        font-size: 1.2em;
+        color: #0a0a0a;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .jobs-container {
+      grid-template-columns: 1fr;
+    }
+
+    .job-card {
+      width: 100%;
+
+      .job-icon {
+        font-size: 4em;
+      }
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 992px) {
+    .jobs-container {
+      grid-template-columns: 1fr 1fr;
+    }
+    .job-card {
+      width: 100%;
+
+      .job-logo {
+        font-size: 3.5em;
+      }
+    }
+  }
 }

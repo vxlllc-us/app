@@ -5,8 +5,10 @@ import "./home.scss";
 import "../../index.scss";
 import { strings } from "../../res";
 import { config, IService, IPartner, ICustomer } from "../../lib";
+import { IJob } from "../../lib/types";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const { services, customers, partners } = config;
+const { services, jobs, customers, partners } = config;
 const base: string = "../../res/assets/images/logos/";
 
 export default class Home extends React.Component {
@@ -49,6 +51,19 @@ export default class Home extends React.Component {
     });
   };
 
+  renderJobs = () => {
+    return jobs.map((job: IJob) => {
+      return (
+        <div className={"job-card"} key={job.title}>
+          <span className={"job-title"}>{job.title}</span>
+          <div className={"job-icon-container"}>
+            <FontAwesomeIcon className={"job-icon"} icon={faArrowRight} />
+          </div>
+        </div>
+      );
+    });
+  };
+
   render() {
     return (
       <div>
@@ -83,6 +98,7 @@ export default class Home extends React.Component {
           <div className="section-header">
             <h1>{strings.home.s11}</h1>
           </div>
+          <div className={"jobs-container"}>{this.renderJobs()}</div>
         </section>
       </div>
     );
