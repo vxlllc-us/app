@@ -52,7 +52,6 @@
 
 .section {
   height: 100%;
-  min-height: 100vh;
   width: 100%;
   padding: 4em 0;
 
@@ -104,6 +103,7 @@
 
 .section-one {
   @extend .section;
+  min-height: 100vh;
   text-align: center;
   display: flex;
   align-items: center;
@@ -419,7 +419,7 @@
     justify-content: center;
     flex-wrap: wrap;
     box-sizing: border-box;
-    animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 4)
+    animation: fadeInFromTop $animation-duration calc(#{$animation-delay} * 6)
       both;
   }
 
@@ -436,6 +436,19 @@
     transition: $animation-duration, display $animation-duration 100ms;
     border-radius: 2px;
     box-shadow: 3px 3px 5px #eee, -3px -3px 5px #fff;
+
+    &:hover {
+      background-color: #0a0a0a;
+      box-shadow: none;
+      color: #fbfbfb;
+      cursor: pointer;
+
+      .job-icon-container {
+        .job-icon {
+          color: #fbfbfb;
+        }
+      }
+    }
 
     .job-title {
       height: 100%;

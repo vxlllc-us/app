@@ -125,10 +125,24 @@ const partners: IPartner[] = [
 
 const jobs: IJob[] = [
   {
+    id: "987ADF0897ADF",
     title: "  GUIDEWIRE IMPLEMENTATION ARCHITECT (INTEGRATION/CONFIGURATION)",
     preface: "Guidewire platform knowledge, GOSU Skills Preferred:",
     requirements: [
       "Previous experience with implementing Guidewire ClaimCenter is strongly preferred.",
+      "Previous experience associated with the design, development, modification and deployment of software, including object-oriented programming concepts with using design standards and best practices.",
+      "ClaimCenter Configuration development experience with relevant certification (Guidewire ClaimCenter 7.x and above).",
+      "Experience with Agile methodology, Source version control, and Release",
+      "Working with offshore teams with different times is preferred.",
+      "Prior experience in: Planning, designing, developing, modifying, testing, debugging, and maintaining GOSU language application code within Guidewire ClaimCenter. management.",
+      "Configures screen layouts, including creation of new screens (PCFs).",
+      "Experience writing business rules and other business logic.",
+      "Experience configuring operational and administration related parameters such as roles and permissions, user attributes regions, activity patterns etc.",
+      "Experience resolving issues identified during testing in regards to the configuration requirements.",
+      "Experience working within a development team using Agile methodology to deliver User stories.",
+      "Experience assisting in GOSU code reviews, code cleanups and perform sprint demos.",
+      "Experience handling the responsibility of organizing code merges and environment management tasks.",
+      "Previous experience managing projects and team members is a plus. Expected to mentor and train client team on configuration and best practices.",
       "Previous experience associated with the design, development, modification and deployment of software, including object-oriented programming concepts with using design standards and best practices.",
       "ClaimCenter Configuration development experience with relevant certification (Guidewire ClaimCenter 7.x and above).",
       "Experience with Agile methodology, Source version control, and Release",
@@ -148,7 +162,8 @@ const jobs: IJob[] = [
 
 export default {
   routes: {
-    home: `${REACT_APP_BASE}/`
+    home: `${REACT_APP_BASE}/`,
+    career: `${REACT_APP_BASE}/career/:id`
   },
   services,
   customers,

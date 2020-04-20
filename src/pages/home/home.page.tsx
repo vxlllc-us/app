@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { RouteComponentProps } from "react-router-dom";
 
 import "./home.scss";
 import "../../index.scss";
@@ -11,7 +12,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const { services, jobs, customers, partners } = config;
 const base: string = "../../res/assets/images/logos/";
 
-export default class Home extends React.Component {
+export default class Home extends React.Component<RouteComponentProps<{}>, any> {
   getImagePath = (name: string) => {
     const image = require(`${base}${name}`);
     return image;
@@ -54,7 +55,7 @@ export default class Home extends React.Component {
   renderJobs = () => {
     return jobs.map((job: IJob) => {
       return (
-        <div className={"job-card"} key={job.title}>
+        <div onClick={() => this.onJobClicked(job.id)} className={"job-card"} key={job.title}>
           <span className={"job-title"}>{job.title}</span>
           <div className={"job-icon-container"}>
             <FontAwesomeIcon className={"job-icon"} icon={faArrowRight} />
@@ -63,6 +64,10 @@ export default class Home extends React.Component {
       );
     });
   };
+
+  onJobClicked = (id: string) => {
+    this.props.history.push(`/app/career/${id}`);
+  }
 
   render() {
     return (

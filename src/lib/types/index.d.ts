@@ -17,6 +17,7 @@ export interface IPartner {
 }
 
 export interface IJob {
+  id: string;
   title: string;
   preface?: string;
   requirements: string[];
