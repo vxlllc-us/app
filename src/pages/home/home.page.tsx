@@ -12,7 +12,8 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const { services, jobs, customers, partners } = config;
 const base: string = "../../res/assets/images/logos/";
 
-export default class Home extends React.Component<RouteComponentProps<{}>, any> {
+type Props = RouteComponentProps<{}>;
+export default class Home extends React.Component<Props, any> {
   getImagePath = (name: string) => {
     const image = require(`${base}${name}`);
     return image;
@@ -55,7 +56,11 @@ export default class Home extends React.Component<RouteComponentProps<{}>, any> 
   renderJobs = () => {
     return jobs.map((job: IJob) => {
       return (
-        <div onClick={() => this.onJobClicked(job.id)} className={"job-card"} key={job.title}>
+        <div
+          onClick={() => this.onJobClicked(job.id)}
+          className={"job-card"}
+          key={job.title}
+        >
           <span className={"job-title"}>{job.title}</span>
           <div className={"job-icon-container"}>
             <FontAwesomeIcon className={"job-icon"} icon={faArrowRight} />
@@ -65,9 +70,41 @@ export default class Home extends React.Component<RouteComponentProps<{}>, any> 
     });
   };
 
+  renderContactUsForm = () => {
+    return (
+      <form className={"form"}>
+        <div className={"input-row"}>
+          <input
+            autoComplete={"off"}
+            name={"name"}
+            placeholder={strings.home.s13}
+          />
+        </div>
+        <div className={"input-row"}>
+          <input
+            autoComplete={"off"}
+            name={"email"}
+            placeholder={strings.home.s14}
+          />
+        </div>
+        <div className={"input-row"}>
+          <textarea
+            rows={10}
+            autoComplete={"off"}
+            name={"message"}
+            placeholder={strings.home.s15}
+          />
+        </div>
+        <div className={"input-row"}>
+          <button>{strings.home.s16}</button>
+        </div>
+      </form>
+    );
+  };
+
   onJobClicked = (id: string) => {
     this.props.history.push(`/app/career/${id}`);
-  }
+  };
 
   render() {
     return (
@@ -104,6 +141,15 @@ export default class Home extends React.Component<RouteComponentProps<{}>, any> 
             <h1>{strings.home.s11}</h1>
           </div>
           <div className={"jobs-container"}>{this.renderJobs()}</div>
+        </section>
+
+        <section id={"section-six"} className="container section-six">
+          <div className="section-header">
+            <h1>{strings.home.s12}</h1>
+          </div>
+          <div className={"contact-us-container"}>
+            {this.renderContactUsForm()}
+          </div>
         </section>
       </div>
     );

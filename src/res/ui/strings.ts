@@ -20,6 +20,11 @@ export default {
       "We are a leading provider of Guidewire Insurance Suite, Portals and Business Intelligence advisory-consulting services, a focused provider of customization and representation of the most comprehensive end-to-end support in the industry today. Agile, flexible, and customercentric, our past Guidewire development experience and expertise, enables us to work alongside our customers to derive the maximum value from Guidewire Insurance Suite implementations as quickly and as effectively as possible. From implementation support to adoption management, our organization is dedicated to our customer’s success.",
     s9: "Customers",
     s10: "Partners",
-    s11: "Careers"
+    s11: "Careers",
+    s12: "Contact Us",
+    s13: "Name",
+    s14: "Email",
+    s15: "Message",
+    s16: "SEND"
   }
 };
