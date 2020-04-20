@@ -13,6 +13,7 @@
       font-size: 1.4em;
       font-weight: 800;
       word-wrap: break-word;
+      animation: fadeInFromTop $animation-duration 100ms both;
     }
 
     .job-preface {
@@ -20,12 +21,24 @@
       font-weight: 300;
       font-size: 1.4em;
       width: 100%;
+      animation: fadeInFromTop $animation-duration 300ms both;
     }
+
     .job-requirements {
       font-size: 1em;
       margin: 20px 0;
       width: 100%;
       line-height: 2em;
+      animation: fadeInFromTop $animation-duration 500ms both;
+
+      ul {
+        padding: 0 20px;
+
+        li {
+          font-size: 1em;
+          font-weight: 100;
+        }
+      }
     }
   }
 }
