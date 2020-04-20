@@ -78,6 +78,12 @@ export default class Home extends React.Component {
           </div>
           <div className={"partners-container"}>{this.renderPartners()}</div>
         </section>
+
+        <section id={"section-five"} className="container section-five">
+          <div className="section-header">
+            <h1>{strings.home.s11}</h1>
+          </div>
+        </section>
       </div>
     );
   }

@@ -15,3 +15,9 @@ export interface IPartner {
   logo: string;
   name: string;
 }
+
+export interface IJob {
+  title: string;
+  preface?: string;
+  requirements: string[];
+}

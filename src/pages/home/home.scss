@@ -1,5 +1,55 @@
 @import "../../index";
 
+.section-last {
+  text-align: center;
+  height: 100px;
+
+  .section-header {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    h1 {
+      display: inline-block;
+      vertical-align: baseline;
+      font-size: 2rem;
+      font-weight: 500;
+      zoom: 1;
+      *display: inline;
+      *vertical-align: auto;
+      position: relative;
+      padding: 0 20px;
+
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        width: 10vw;
+        position: absolute;
+        top: 0.73em;
+        border-top: 5px solid #0a0a0a;
+      }
+
+      &:before {
+        right: 100%;
+      }
+      &:after {
+        left: 100%;
+      }
+    }
+
+    p {
+      font-size: 1.1em;
+      width: 100%;
+      text-align: center;
+      margin: 0 0 3em 0;
+      font-weight: 200;
+      color: #0a0a0a;
+    }
+  }
+}
+
 .section {
   height: 100%;
   min-height: 100vh;
@@ -254,51 +304,14 @@
 }
 
 .section-four {
+  @extend .section;
   text-align: center;
-  height: 100px;
 
   .section-header {
-    width: 100%;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-
     h1 {
-      display: inline-block;
-      vertical-align: baseline;
-      font-size: 2rem;
-      font-weight: 500;
-      zoom: 1;
-      *display: inline;
-      *vertical-align: auto;
-      position: relative;
-      padding: 0 20px;
-
-      &:before,
-      &:after {
-        content: "";
-        display: block;
-        width: 10vw;
-        position: absolute;
-        top: 0.73em;
-        border-top: 5px solid #0a0a0a;
-      }
-
-      &:before {
-        right: 100%;
-      }
-      &:after {
-        left: 100%;
-      }
-    }
-
-    p {
-      font-size: 1.1em;
-      width: 100%;
-      text-align: center;
-      margin: 0 0 3em 0;
-      font-weight: 200;
-      color: #0a0a0a;
+      margin-bottom: 32px;
+      animation: fadeInFromTop $animation-duration
+        calc(#{$animation-delay} * 3.5) both;
     }
   }
 
@@ -373,4 +386,8 @@
       }
     }
   }
+}
+
+.section-five {
+  @extend .section-last;
 }
