@@ -1,4 +1,4 @@
-const dark: string = "#0a0a0a";
+const dark: string = "#343d51";
 const light: string = "#fbfbfb";
 const textDark: string = "#0a0a0a";
 const textLight: string = "#fbfbfb";
@@ -12,7 +12,7 @@ const theme: any = {
   primary,
   secondary,
   primaryText,
-  secondaryText,
+  secondaryText
 };
 
 export default theme;

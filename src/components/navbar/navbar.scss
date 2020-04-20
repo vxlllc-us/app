@@ -61,7 +61,7 @@
 
   .logo {
     height: 80%;
-    width: 28px;
+    width: 38px;
     object-fit: contain;
     cursor: pointer;
   }
@@ -76,6 +76,7 @@
     display: none;
 
     .menu-icon {
+      color: $secondary;
       font-size: 2em;
     }
   }
@@ -105,7 +106,7 @@
   .navbar {
     .logo {
       height: 80%;
-      width: 28px;
+      width: 38px;
     }
 
     .menu-icon-container {

@@ -24,7 +24,7 @@ class Navbar extends React.Component<IProps, IState> {
     this.state = {
       pos: 0,
       logo: _logo,
-      show: false,
+      show: false
     };
 
     window.addEventListener("scroll", this.handleScroll);
@@ -42,63 +42,61 @@ class Navbar extends React.Component<IProps, IState> {
     console.log("innerWidth: ", innerWidth);
     if (innerWidth > 768) {
       this.setState({
-        show: false,
+        show: false
       });
     }
   };
 
   toggleDrawer = () => {
     this.setState({
-      show: !this.state.show,
+      show: !this.state.show
     });
   };
 
   handleScroll = () => {
     const old: number = this.state.pos;
     const current: number = window.pageYOffset;
+    const navbar: HTMLElement = document.getElementsByClassName(
+      "navbar"
+    )[0] as HTMLElement;
+    const menuIcon: HTMLElement = document.getElementsByClassName(
+      "menu-icon"
+    )[0] as HTMLElement;
 
     if (current > old) {
       if (current > 0 && current <= 500) {
         // scrolling down
-        const element: HTMLElement = document.getElementsByClassName(
-          "navbar"
-        )[0] as HTMLElement;
-        if (element) {
-          element.style.backgroundColor = theme.primary;
-          element.style.boxShadow = "3px 0 5px #000";
+        if (navbar) {
+          navbar.style.backgroundColor = theme.primary;
+          navbar.style.boxShadow = "3px 0 5px #000";
         }
       } else if (current > 500) {
         // scrolling down
-        const element: HTMLElement = document.getElementsByClassName(
-          "navbar"
-        )[0] as HTMLElement;
-        if (element) {
+        if (navbar) {
           this.setState({
-            logo: _logoWhite,
+            logo: _logoWhite
           });
-          element.style.color = theme.secondaryText;
-          element.style.backgroundColor = theme.secondary;
-          element.style.transitionDuration = "200ms";
-          element.style.boxShadow = "3px 0 5px #000";
+          menuIcon.style.color = theme.secondaryText;
+          navbar.style.color = theme.secondaryText;
+          navbar.style.backgroundColor = theme.secondary;
+          navbar.style.transitionDuration = "200ms";
+          navbar.style.boxShadow = "3px 0 5px #000";
         }
       }
     } else if (current < old && current <= 500) {
       // scrolling up
-      const element: HTMLElement = document.getElementsByClassName(
-        "navbar"
-      )[0] as HTMLElement;
-      if (element) {
+      if (navbar) {
         this.setState({
-          logo: _logo,
+          logo: _logo
         });
-        element.style.color = theme.primaryText;
-        element.style.backgroundColor = theme.primary;
-        element.style.transitionDuration = "200ms";
-        element.style.boxShadow = "none";
+        navbar.style.color = theme.primaryText;
+        navbar.style.backgroundColor = theme.primary;
+        navbar.style.transitionDuration = "200ms";
+        navbar.style.boxShadow = "none";
       }
     }
     this.setState({
-      pos: current,
+      pos: current
     });
   };
 
