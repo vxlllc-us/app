@@ -28,7 +28,7 @@
         width: 10vw;
         position: absolute;
         top: 0.73em;
-        border-top: 5px solid #0a0a0a;
+        border-top: 5px solid $secondary;
       }
 
       &:before {
@@ -45,7 +45,7 @@
       text-align: center;
       margin: 0 0 3em 0;
       font-weight: 200;
-      color: #0a0a0a;
+      color: $primary-text;
     }
   }
 }
@@ -79,7 +79,7 @@
         width: 10vw;
         position: absolute;
         top: 0.73em;
-        border-top: 5px solid #0a0a0a;
+        border-top: 5px solid $secondary;
       }
 
       &:before {
@@ -96,7 +96,7 @@
       text-align: center;
       margin: 0 0 3em 0;
       font-weight: 200;
-      color: #0a0a0a;
+      color: $primary-text;
     }
   }
 }
@@ -179,7 +179,7 @@
 
     .service-icon {
       font-size: 3.4em;
-      color: #0a0a0a;
+      color: $primary-text;
       margin-bottom: 12px;
     }
 
@@ -188,7 +188,7 @@
       margin-bottom: 12px;
       text-align: center;
       font-size: 1.2em;
-      color: #0a0a0a;
+      color: $primary-text;
     }
 
     .service-description {
@@ -277,7 +277,7 @@
       flex-grow: 1;
       text-align: center;
       font-size: 1.2em;
-      color: #0a0a0a;
+      color: $primary-text;
       display: flex;
       align-items: flex-end;
       justify-content: center;
@@ -365,7 +365,7 @@
       flex-grow: 1;
       text-align: center;
       font-size: 1.2em;
-      color: #0a0a0a;
+      color: $primary-text;
       display: flex;
       align-items: flex-end;
       justify-content: center;
@@ -441,14 +441,14 @@
     box-shadow: 3px 3px 5px #eee, -3px -3px 5px #fff;
 
     &:hover {
-      background-color: #0a0a0a;
+      background-color: $secondary;
       box-shadow: none;
-      color: #fbfbfb;
+      color: $secondary-text;
       cursor: pointer;
 
       .job-icon-container {
         .job-icon {
-          color: #fbfbfb;
+          color: $secondary-text;
         }
       }
     }
@@ -481,7 +481,7 @@
         flex-grow: 1;
         text-align: right;
         font-size: 1.2em;
-        color: #0a0a0a;
+        color: $primary-text;
       }
     }
   }
@@ -611,8 +611,8 @@
         border: none;
         border-radius: 4px;
         padding: 6px 12px;
-        background-color: #0a0a0a;
-        color: #fbfbfb;
+        background-color: $secondary;
+        color: $secondary-text;
         font-size: 1.1em;
         font-weight: 500;
         box-shadow: 3px 3px 5px grey;

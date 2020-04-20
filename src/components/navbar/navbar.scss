@@ -29,8 +29,8 @@
     width: 40vw;
     min-width: 225px;
     z-index: 120000;
-    background-color: #0a0a0a;
-    color: #fbfbfb;
+    background-color: $secondary;
+    color: $secondary-text;
     animation: slideInFromRight $animation-duration both;
     transition: $animation-duration;
     padding: 42px 0;
@@ -50,7 +50,7 @@
       right: 0;
       margin: 12px 12px 0 0;
       font-size: 1.4em;
-      color: #fbfbfb;
+      color: $secondary-text;
       cursor: pointer;
     }
   }

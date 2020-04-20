@@ -24,7 +24,7 @@ class Navbar extends React.Component<IProps, IState> {
     this.state = {
       pos: 0,
       logo: _logo,
-      show: false
+      show: false,
     };
 
     window.addEventListener("scroll", this.handleScroll);
@@ -36,7 +36,7 @@ class Navbar extends React.Component<IProps, IState> {
 
   toggleDrawer = () => {
     this.setState({
-      show: !this.state.show
+      show: !this.state.show,
     });
   };
 
@@ -61,9 +61,9 @@ class Navbar extends React.Component<IProps, IState> {
         )[0] as HTMLElement;
         if (element) {
           this.setState({
-            logo: _logoWhite
+            logo: _logoWhite,
           });
-          element.style.color = theme.primary;
+          element.style.color = theme.secondaryText;
           element.style.backgroundColor = theme.secondary;
           element.style.transitionDuration = "200ms";
           element.style.boxShadow = "3px 0 5px #000";
@@ -76,16 +76,16 @@ class Navbar extends React.Component<IProps, IState> {
       )[0] as HTMLElement;
       if (element) {
         this.setState({
-          logo: _logo
+          logo: _logo,
         });
-        element.style.color = theme.secondary;
+        element.style.color = theme.primaryText;
         element.style.backgroundColor = theme.primary;
         element.style.transitionDuration = "200ms";
         element.style.boxShadow = "none";
       }
     }
     this.setState({
-      pos: current
+      pos: current,
     });
   };
 
