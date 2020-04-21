@@ -25,6 +25,7 @@ export default {
     s13: "Name",
     s14: "Email",
     s15: "Message",
-    s16: "SEND"
+    s16: "SEND",
+    s17: "SENT!"
   }
 };

@@ -48,6 +48,9 @@ class Navbar extends React.Component<IProps, IState> {
   };
 
   toggleDrawer = () => {
+    if (window.innerWidth > 768) {
+      return;
+    }
     this.setState({
       show: !this.state.show
     });
@@ -126,8 +129,12 @@ class Navbar extends React.Component<IProps, IState> {
               src={this.state.logo}
             />
           </div>
-          <div onClick={this.toggleDrawer} className={"menu-icon-container"}>
-            <FontAwesomeIcon className={"menu-icon"} icon={faBars} />
+          <div className={"menu-icon-container"}>
+            <FontAwesomeIcon
+              onClick={this.toggleDrawer}
+              className={"menu-icon"}
+              icon={faBars}
+            />
           </div>
           <div className={`drawer ${this.state.show && "show"}`}>
             <FontAwesomeIcon

@@ -604,6 +604,11 @@
         }
       }
 
+      .disabled {
+        background-color: lighten($color: $secondary, $amount: 20);
+        box-shadow: none;
+      }
+
       button {
         height: 48px;
         width: 100%;
@@ -612,9 +617,13 @@
         border-radius: 4px;
         padding: 6px 12px;
         background-color: $secondary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: $secondary-text;
-        font-size: 1.1em;
-        font-weight: 500;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        font-weight: 900;
         box-shadow: 3px 3px 5px grey;
         transition: $animation-duration;
 

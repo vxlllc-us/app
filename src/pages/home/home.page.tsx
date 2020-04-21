@@ -1,19 +1,37 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RouteComponentProps } from "react-router-dom";
+import { GridLoader } from "react-spinners";
 
 import "./home.scss";
 import "../../index.scss";
-import { strings } from "../../res";
-import { config, IService, IPartner, ICustomer } from "../../lib";
-import { IJob } from "../../lib/types";
+import { strings, theme } from "../../res";
+import {
+  config,
+  IJob,
+  IService,
+  IMessage,
+  IPartner,
+  ICustomer
+} from "../../lib";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import * as modules from "./home.module";
 
 const { services, jobs, customers, partners } = config;
 const base: string = "../../res/assets/images/logos/";
 
 type Props = RouteComponentProps<{}>;
-export default class Home extends React.Component<Props, any> {
+type State = modules.State;
+export default class Home extends React.Component<Props, State> {
+  state: State = {
+    submitting: false,
+    submitted: false,
+    error: null,
+    message: "",
+    name: "",
+    email: ""
+  };
+
   getImagePath = (name: string) => {
     const image = require(`${base}${name}`);
     return image;
@@ -72,38 +90,130 @@ export default class Home extends React.Component<Props, any> {
 
   renderContactUsForm = () => {
     return (
-      <form className={"form"}>
+      <form onSubmit={this.onFormSubmit} className={"form"}>
         <div className={"input-row"}>
           <input
+            onChange={this.onNameInput}
             autoComplete={"off"}
             name={"name"}
             placeholder={strings.home.s13}
+            value={this.state.name}
           />
         </div>
         <div className={"input-row"}>
           <input
+            onChange={this.onEmailInput}
             autoComplete={"off"}
             name={"email"}
             placeholder={strings.home.s14}
+            value={this.state.email}
           />
         </div>
         <div className={"input-row"}>
           <textarea
+            onChange={this.onMessageInput}
             rows={10}
             autoComplete={"off"}
             name={"message"}
+            value={this.state.message}
             placeholder={strings.home.s15}
           />
         </div>
         <div className={"input-row"}>
-          <button>{strings.home.s16}</button>
+          <button
+            className={
+              this.state.submitting || this.state.submitted ? "disabled" : ""
+            }
+            disabled={this.state.submitting || this.state.submitted}
+            onClick={this.onFormSubmit}
+          >
+            {this.renderSubmitButton()}
+          </button>
         </div>
       </form>
     );
   };
 
+  renderSubmitButton = () => {
+    if (this.state.submitting) {
+      return <GridLoader color={theme.primary} size={5} margin={2} />;
+    }
+    if (this.state.submitted) {
+      return <span>{strings.home.s17}</span>;
+    }
+    return <span>{strings.home.s16}</span>;
+  };
+
   onJobClicked = (id: string) => {
     this.props.history.push(`/app/career/${id}`);
+  };
+
+  onFormSubmit = async (
+    e: React.FormEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+    this.setState({
+      submitting: true
+    });
+
+    try {
+      const message: IMessage = {
+        name: this.state.name,
+        email: this.state.email,
+        message: this.state.message
+      };
+
+      const success: boolean = await modules.submitMessage(message);
+      if (success) {
+        this.setState({
+          error: null,
+          submitting: false,
+          submitted: true,
+          name: "",
+          email: "",
+          message: ""
+        });
+
+        setTimeout(() => {
+          this.setState({
+            submitted: false,
+            error: null
+          });
+        }, 1500);
+      } else {
+        this.setState({
+          error: "Something went wrong, please try again after some time.",
+          submitting: false,
+          submitted: false
+        });
+      }
+    } catch (err) {
+      this.setState({
+        submitting: false,
+        error: err.message
+      });
+    }
+  };
+
+  onEmailInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    this.setState({
+      email: e.target.value
+    });
+  };
+
+  onMessageInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    e.preventDefault();
+    this.setState({
+      message: e.target.value
+    });
+  };
+
+  onNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    this.setState({
+      name: e.target.value
+    });
   };
 
   render() {

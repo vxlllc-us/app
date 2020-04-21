@@ -76,6 +76,7 @@
     display: none;
 
     .menu-icon {
+      display: none;
       color: $secondary;
       font-size: 2em;
     }
@@ -111,6 +112,10 @@
 
     .menu-icon-container {
       display: flex;
+
+      .menu-icon {
+        display: block;
+      }
     }
     .navigation-container {
       display: none;

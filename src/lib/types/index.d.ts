@@ -22,3 +22,9 @@ export interface IJob {
   preface?: string;
   requirements: string[];
 }
+
+export interface IMessage {
+  name: string;
+  email: string;
+  message: string;
+}

@@ -165,6 +165,11 @@ export default {
     home: `${REACT_APP_BASE}/`,
     career: `${REACT_APP_BASE}/career/:id`
   },
+  firebase: {
+    collections: {
+      messages: "messages"
+    }
+  },
   services,
   customers,
   partners,
