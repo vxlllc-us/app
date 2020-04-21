@@ -6,6 +6,7 @@ import { Home, Career } from "../";
 import { Navbar } from "../../components";
 import { config } from "../../lib";
 import { theme } from "../../res";
+import * as modules from "./wrapper.module";
 
 const { routes } = config;
 const GlobalStyle = createGlobalStyle`
@@ -16,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default class Wrapper extends React.Component {
+  componentDidMount() {
+    modules.setup();
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
