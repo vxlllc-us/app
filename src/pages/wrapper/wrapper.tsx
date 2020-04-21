@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import { Home, Career } from "../";
 import { Navbar } from "../../components";
-import { config } from "../../lib";
+import { store, config } from "../../lib";
 import { theme } from "../../res";
 import * as modules from "./wrapper.module";
 
@@ -23,16 +24,18 @@ export default class Wrapper extends React.Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route exact path={routes.home} component={Home} />
-            <Route exact path={routes.career} component={Career} />
-          </Switch>
-        </Router>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Router>
+            <Navbar />
+            <Switch>
+              <Route exact path={routes.home} component={Home} />
+              <Route exact path={routes.career} component={Career} />
+            </Switch>
+          </Router>
+        </ThemeProvider>
+      </Provider>
     );
   }
 }

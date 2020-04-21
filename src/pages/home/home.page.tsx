@@ -1,7 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { RouteComponentProps } from "react-router-dom";
-import { GridLoader } from "react-spinners";
+import { RouteComponentProps, withRouter } from "react-router-dom";
+import { ScaleLoader } from "react-spinners";
+import { Field, InjectedFormProps, reset, reduxForm } from "redux-form";
 
 import "./home.scss";
 import "../../index.scss";
@@ -16,13 +18,14 @@ import {
 } from "../../lib";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import * as modules from "./home.module";
+import { TextArea, Input } from "../../components";
 
 const { services, jobs, customers, partners } = config;
 const base: string = "../../res/assets/images/logos/";
 
-type Props = RouteComponentProps<{}>;
+type Props = RouteComponentProps<{}> & InjectedFormProps<any, any> & ReduxType;
 type State = modules.State;
-export default class Home extends React.Component<Props, State> {
+class Home extends React.Component<Props, State> {
   state: State = {
     submitting: false,
     submitted: false,
@@ -90,41 +93,43 @@ export default class Home extends React.Component<Props, State> {
 
   renderContactUsForm = () => {
     return (
-      <form onSubmit={this.onFormSubmit} className={"form"}>
+      <form
+        onSubmit={this.props.handleSubmit(this.onFormSubmit)}
+        className={"form"}
+      >
         <div className={"input-row"}>
-          <input
-            onChange={this.onNameInput}
+          <Field
+            type={"text"}
+            component={Input}
             autoComplete={"off"}
             name={"name"}
             placeholder={strings.home.s13}
-            value={this.state.name}
           />
         </div>
         <div className={"input-row"}>
-          <input
-            onChange={this.onEmailInput}
+          <Field
+            type={"text"}
+            component={Input}
             autoComplete={"off"}
             name={"email"}
             placeholder={strings.home.s14}
-            value={this.state.email}
           />
         </div>
         <div className={"input-row"}>
-          <textarea
-            onChange={this.onMessageInput}
+          <Field
+            type={"text"}
+            component={TextArea}
             rows={10}
             autoComplete={"off"}
             name={"message"}
-            value={this.state.message}
             placeholder={strings.home.s15}
           />
         </div>
         <div className={"input-row"}>
           <button
-            className={
-              this.state.submitting || this.state.submitted ? "disabled" : ""
+            disabled={
+              !this.props.valid || this.state.submitting || this.state.submitted
             }
-            disabled={this.state.submitting || this.state.submitted}
             onClick={this.onFormSubmit}
           >
             {this.renderSubmitButton()}
@@ -136,7 +141,15 @@ export default class Home extends React.Component<Props, State> {
 
   renderSubmitButton = () => {
     if (this.state.submitting) {
-      return <GridLoader color={theme.primary} size={5} margin={2} />;
+      return (
+        <ScaleLoader
+          color={theme.primary}
+          height={12}
+          width={4}
+          radius={2}
+          margin={2}
+        />
+      );
     }
     if (this.state.submitted) {
       return <span>{strings.home.s17}</span>;
@@ -158,9 +171,7 @@ export default class Home extends React.Component<Props, State> {
 
     try {
       const message: IMessage = {
-        name: this.state.name,
-        email: this.state.email,
-        message: this.state.message
+        ...this.props.form.contactUs.values
       };
 
       const success: boolean = await modules.submitMessage(message);
@@ -173,6 +184,7 @@ export default class Home extends React.Component<Props, State> {
           email: "",
           message: ""
         });
+        this.props.reset();
 
         setTimeout(() => {
           this.setState({
@@ -217,6 +229,7 @@ export default class Home extends React.Component<Props, State> {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <section id={"section-one"} className={"section-one"}>
@@ -265,3 +278,28 @@ export default class Home extends React.Component<Props, State> {
     );
   }
 }
+
+const mapStateToProps = (state: any): any => {
+  return state;
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    reset: () => {
+      dispatch(reset("contactUs"));
+    }
+  };
+};
+
+type ReduxType = ReturnType<typeof mapDispatchToProps> &
+  ReturnType<typeof mapStateToProps>;
+
+export default reduxForm({
+  form: "contactUs",
+  validate: modules.validate
+})(
+  connect<typeof mapStateToProps, typeof mapDispatchToProps>(
+    mapStateToProps,
+    mapDispatchToProps
+  )(withRouter(Home))
+);
