@@ -4,9 +4,11 @@ import logger from "redux-logger";
 
 let middlewares: any[] = [];
 
+/*
 if (process.env.NODE_ENV === "development") {
   middlewares.push(logger);
 }
+*/
 
 const rootReducer: any = combineReducers({
   form: formReducer
