@@ -34,7 +34,6 @@ class Home extends React.Component<Props, State> {
     name: "",
     email: ""
   };
-
   getImagePath = (name: string) => {
     const image = require(`${base}${name}`);
     return image;
@@ -274,6 +273,8 @@ class Home extends React.Component<Props, State> {
             {this.renderContactUsForm()}
           </div>
         </section>
+
+        <div className="footer" />
       </div>
     );
   }

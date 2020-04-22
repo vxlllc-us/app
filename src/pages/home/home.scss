@@ -515,7 +515,8 @@
 }
 
 .section-six {
-  @extend .section-last;
+  @extend .section;
+  padding: 0;
 
   .section-header {
     h1 {
@@ -645,4 +646,13 @@
       }
     }
   }
+}
+
+.footer {
+  width: 100%;
+  height: 68px;
+  background-color: $secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
