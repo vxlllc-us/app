@@ -22,6 +22,7 @@ import { TextArea, Input } from "../../components";
 
 const { services, jobs, customers, partners } = config;
 const base: string = "../../res/assets/images/logos/";
+const { SocialMediaIconsReact } = require("social-media-icons-react");
 
 type Props = RouteComponentProps<{}> & InjectedFormProps<any, any> & ReduxType;
 type State = modules.State;
@@ -274,7 +275,41 @@ class Home extends React.Component<Props, State> {
           </div>
         </section>
 
-        <div className="footer" />
+        <div className="footer">
+          <span>
+            <SocialMediaIconsReact
+              icon="twitter"
+              roundness="20%"
+              size="40"
+              url={"https://www.twitter.com"}
+              iconSize="4"
+            />
+            <span></span>
+            <SocialMediaIconsReact
+              icon="facebook"
+              roundness="20%"
+              size="40"
+              url={"https://www.facebook.com"}
+              iconSize="4"
+            />
+            <span></span>
+            <SocialMediaIconsReact
+              icon="linkedin"
+              roundness="20%"
+              size="40"
+              url={"https://www.linkedin.com"}
+              iconSize="4"
+            />
+            <span></span>
+            <SocialMediaIconsReact
+              icon="mail"
+              roundness="20%"
+              size="40"
+              iconSize="4"
+              url={"https://www.gmail.com"}
+            />
+          </span>
+        </div>
       </div>
     );
   }

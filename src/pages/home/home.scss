@@ -516,7 +516,7 @@
 
 .section-six {
   @extend .section;
-  padding: 0;
+  padding: 0 18px;
 
   .section-header {
     h1 {
@@ -655,4 +655,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  span {
+    margin: 0 12px;
+  }
 }

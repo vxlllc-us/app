@@ -1,5 +1,7 @@
 import { IconDefinition } from "@fortawesome/react-fontawesome";
 
+declare module "social-media-icons-react";
+
 export interface IService {
   icon: IconDefinition;
   name: string;

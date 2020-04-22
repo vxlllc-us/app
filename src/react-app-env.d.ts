@@ -8,5 +8,6 @@ declare module "styled-components" {
 
 declare module '*.jpg';
 declare module '*.png';
+declare module "social-media-icons-react";
 
 /// <reference types="react-scripts" />
