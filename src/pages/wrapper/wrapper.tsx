@@ -8,6 +8,7 @@ import { Navbar } from "../../components";
 import { store, config } from "../../lib";
 import { theme } from "../../res";
 import * as modules from "./wrapper.module";
+import Login from "../login/login.page";
 
 const { routes } = config;
 const GlobalStyle = createGlobalStyle`
@@ -32,6 +33,7 @@ export default class Wrapper extends React.Component {
             <Switch>
               <Route exact path={routes.home} component={Home} />
               <Route exact path={routes.career} component={Career} />
+              <Route exact path={routes.login} component={Login} />
             </Switch>
           </Router>
         </ThemeProvider>

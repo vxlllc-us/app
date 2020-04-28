@@ -1,4 +1,5 @@
 import { IOption } from "../types";
+import { default as config } from "./index";
 
 const options: IOption[] = [
   {
@@ -19,7 +20,11 @@ const options: IOption[] = [
   },
   {
     title: "Contact Us",
-    href: "#section-six"
+    href: "#section-five"
+  },
+  {
+    title: "Login",
+    href: "/app/login"
   }
 ];
 

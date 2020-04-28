@@ -123,10 +123,11 @@ class Navbar extends React.Component<IProps, IState> {
 
   navigateToHome = () => {
     const { pathname } = this.props.location;
-    if (pathname.split("/").length > 3) {
-      this.props.history.push(routes.home);
-    } else {
+    const isHome: boolean = pathname.endsWith("/app/");
+    if (isHome) {
       window.scrollTo(0, 0);
+    } else {
+      this.props.history.push(routes.home);
     }
   };
 
