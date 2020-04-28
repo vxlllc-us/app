@@ -116,10 +116,6 @@ const partners: IPartner[] = [
   {
     logo: getLogoFromImage("biminds.jpg"),
     name: "Biminds"
-  },
-  {
-    logo: getLogoFromImage("vassarlabs.png"),
-    name: "Vassar Labs"
   }
 ];
 

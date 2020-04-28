@@ -3,10 +3,14 @@ import firebase from "firebase";
 import { IMessage, config } from "../../lib";
 
 const { collections } = config.firebase;
-const regexp: RegExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-
+const regexp: RegExp = new RegExp(
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+);
 
 export function submitMessage(message: IMessage): Promise<boolean> {
+  // TODO
+  // add bruteforce restriction
+  // get geolocation
   return firebase
     .firestore()
     .collection(collections.messages)
@@ -30,23 +34,22 @@ export const validate = (values: any): any => {
   const emptyMessage = "This field cannot be empty";
   const invalid: string = "Invalid email address";
 
-  if(!name) {
-    errors.name = emptyMessage
+  if (!name) {
+    errors.name = emptyMessage;
   }
 
-  if(!email) {
-    errors.email = emptyMessage
+  if (!email) {
+    errors.email = emptyMessage;
   } else if (!regexp.test(email)) {
     errors.email = invalid;
   }
 
-  if(!message) {
+  if (!message) {
     errors.message = emptyMessage;
   }
-  
-  return errors;
-}
 
+  return errors;
+};
 
 export interface State {
   submitting: boolean;
