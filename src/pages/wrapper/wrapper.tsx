@@ -33,7 +33,7 @@ export default class Wrapper extends React.Component {
             <Switch>
               <Route exact path={routes.home} component={Home} />
               <Route exact path={routes.career} component={Career} />
-              <Route exact path={routes.login} component={Login} />
+                <Route exact path={"/app/login"} component={Login} />
             </Switch>
           </Router>
         </ThemeProvider>
