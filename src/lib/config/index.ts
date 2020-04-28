@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { IService, IJob, IPartner, ICustomer } from "../types";
+import options from "./options.config";
 
 function getLogoFromImage(logo: string) {
   return require(`../../res/assets/images/logos/${logo}`);
@@ -166,6 +167,7 @@ export default {
       messages: "messages"
     }
   },
+  options,
   services,
   customers,
   partners,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { strings, theme } from "../../res";
 import { config } from "../../lib";
 import "./navbar.scss";
+import { IOption } from "../../lib/types";
 
 const _logo = require("../../res/assets/images/logos/logo-black.png");
 const _logoWhite = require("../../res/assets/images/logos/logo-white.png");
@@ -104,6 +105,22 @@ class Navbar extends React.Component<IProps, IState> {
     });
   };
 
+  renderOption = (option: IOption): ReactElement => {
+    return (
+      <div className="nav-button">
+        <a onClick={this.handleNavigationalClick} href={option.href}>
+          <span>{option.title}</span>
+        </a>
+      </div>
+    );
+  };
+
+  renderOptions = (): ReactElement[] => {
+    return config.options.map((option: IOption) => {
+      return this.renderOption(option);
+    });
+  };
+
   navigateToHome = () => {
     const { pathname } = this.props.location;
     if (pathname.split("/").length > 3) {
@@ -142,59 +159,9 @@ class Navbar extends React.Component<IProps, IState> {
               className={"close-button"}
               icon={faTimes}
             />
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-two"}>
-                <span>{strings.navbar.s1}</span>
-              </a>
-            </div>
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-three"}>
-                <span>{strings.navbar.s2}</span>
-              </a>
-            </div>
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-four"}>
-                <span>{strings.navbar.s3}</span>
-              </a>
-            </div>
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-five"}>
-                <span>{strings.navbar.s4}</span>
-              </a>
-            </div>
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-six"}>
-                <span>{strings.navbar.s5}</span>
-              </a>
-            </div>
+            {this.renderOptions()}
           </div>
-          <div className="navigation-container">
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-two"}>
-                <span>{strings.navbar.s1}</span>
-              </a>
-            </div>
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-three"}>
-                <span>{strings.navbar.s2}</span>
-              </a>
-            </div>
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-four"}>
-                <span>{strings.navbar.s3}</span>
-              </a>
-            </div>
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-five"}>
-                <span>{strings.navbar.s4}</span>
-              </a>
-            </div>
-            <div className="nav-button">
-              <a onClick={this.handleNavigationalClick} href={"#section-six"}>
-                <span>{strings.navbar.s5}</span>
-              </a>
-            </div>
-          </div>
+          <div className="navigation-container">{this.renderOptions()}</div>
         </div>
       </nav>
     );

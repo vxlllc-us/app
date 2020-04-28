@@ -30,3 +30,10 @@ export interface IMessage {
   email: string;
   message: string;
 }
+
+export interface IOption {
+  title: string;
+  onClick?: any;
+  path?: string;
+  href?: string;
+}
