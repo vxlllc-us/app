@@ -81,6 +81,26 @@ class Login extends React.Component<any, State> {
       });
   };
 
+  renderButton = () => {
+    if (this.state.loading) {
+      return null;
+    }
+    if (this.state.user) {
+      return (
+        <button className={"logout"} onClick={this.onLogout}>
+          Logout
+        </button>
+      );
+    }
+
+    return (
+      <button className={"login"} onClick={this.onLogin}>
+        <img src={google} />
+        <h4>Login with Google</h4>
+      </button>
+    );
+  };
+
   render() {
     return (
       <div className="login-root">
@@ -95,19 +115,7 @@ class Login extends React.Component<any, State> {
               margin={2}
             />
           )}
-          {!this.state.loading && this.state.user && (
-            <>
-              <button className={"logout"} onClick={this.onLogout}>
-                Logout
-              </button>
-            </>
-          )}
-          {!this.state.loading && !this.state.user && (
-            <button className={"login"} onClick={this.onLogin}>
-              <img src={google} />
-              <h4>Login with Google</h4>
-            </button>
-          )}
+          {this.renderButton()}
         </div>
       </div>
     );
