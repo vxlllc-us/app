@@ -18,7 +18,7 @@ import {
 } from "../../lib";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import * as modules from "./home.module";
-import { TextArea, Input } from "../../components";
+import { TextArea, Input, Navbar } from "../../components";
 
 const { services, jobs, customers, partners } = config;
 const base: string = "../../res/assets/images/logos/";
@@ -232,6 +232,7 @@ class Home extends React.Component<Props, State> {
     console.log(this.props);
     return (
       <div>
+        <Navbar />
         <section id={"section-one"} className={"section-one"}>
           <h1>{strings.home.s1}</h1>
           <h6>{strings.home.s2}</h6>

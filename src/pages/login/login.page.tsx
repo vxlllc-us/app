@@ -43,15 +43,12 @@ class Login extends React.Component<any, State> {
       .then((result: any) => {
         const token = result.credential.accessToken;
         const user: UserInfo = result.user;
-        console.log("token: ", token);
-        console.log("user: ", user);
         this.setState({
           loading: false,
           user
         });
       })
       .catch(error => {
-        console.log("error: ", error);
         const errorCode = error.code;
         const errorMessage = error.message;
         const email = error.email;

@@ -29,7 +29,6 @@ export default class Wrapper extends React.Component {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <Router>
-            <Navbar />
             <Switch>
               <Route exact path={routes.home} component={Home} />
               <Route exact path={routes.career} component={Career} />
